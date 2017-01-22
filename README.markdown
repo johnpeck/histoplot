@@ -65,4 +65,6 @@ interactive wxt terminal.
 
 [[https://github.com/johnpeck/histoplot/blob/master/example/histogram.png]]
 
+![Alt text](/example/histogram.png?raw=true "Optional title")
+
 
