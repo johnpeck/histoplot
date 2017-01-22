@@ -63,6 +63,6 @@ would be:
 directory.  Note that this won't look the same as that seen with the
 interactive wxt terminal.
 
-[[https://github.com/johnpeck/histoplot/blob/master/example/histogram.png|alt=histogram]]
+[[https://github.com/johnpeck/histoplot/blob/master/example/histogram.png]]
 
 
