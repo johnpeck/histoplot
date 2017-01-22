@@ -1,6 +1,6 @@
 # histoplot #
 
-Create a histogram using Tcl and gnuplot.
+Create a histogram using Tcl and gnuplot.  Scroll down for an example.
 
 ## Prerequisites ##
 
@@ -63,8 +63,6 @@ would be:
 directory.  Note that this won't look the same as that seen with the
 interactive wxt terminal.
 
-[[https://github.com/johnpeck/histoplot/blob/master/example/histogram.png]]
-
-![Alt text](/example/histogram.png?raw=true "Optional title")
+![Sample histogram](/example/histogram.png?raw=true "Sample histoplot output")
 
 
