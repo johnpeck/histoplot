@@ -58,7 +58,11 @@ of 5uA.  This means 40 bins.  The command to create the histogram
 would be:
 
     tclsh histoplot.tcl -s 100 -e 301 -n 40 -u uA -l "Device current" sample_data.dat
-	
-[[https://github.com/johnpeck/histoplot/blob/master/img/octocat.png|alt=octocat]]
+
+...and the script will create `histogram.eps` in a `histoplot_output`
+directory.  Note that this won't look the same as that seen with the
+interactive wxt terminal.
+
+[[https://github.com/johnpeck/histoplot/blob/master/example/histogram.png|alt=histogram]]
 
 
