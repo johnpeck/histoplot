@@ -241,6 +241,19 @@ proc escape_underscores {string_with_underscores} {
     return [string map {_ \\_} $string_with_underscores]
 }
 
+proc add_engineering_prefix {num} {
+    array set orders {
+	-8 y -7 z -6 a -5 f -4 p -3 n -2 u -1 m 0 {} 1 k 2 M 3 G 4 T 5 P 6 E 7 Z 8 Y
+    }
+    set numInfo  [split [format %e $num] e]
+    set order [expr {[scan [lindex $numInfo 1] %d] / 3}]
+    if {[catch {set orders($order)} prefix]} {
+	return [list $num]
+    }
+    set num [format %0.1f [expr {$num/pow(10,3*$order)}]]
+    return [list $num $prefix]
+}
+
 proc write_raw_plotscript {output_directory plot_script_name datafile} {
     # Write gnuplot commands to a file
     #
@@ -298,11 +311,11 @@ proc write_raw_plotscript {output_directory plot_script_name datafile} {
     append plot_instruction " at graph 0.7, graph 0.95"
     puts $filepointer $plot_instruction
     set plot_instruction "set label"
-    append plot_instruction " 'Mean: [format "%0.1f" $mean_current] $params(u)' "
+    append plot_instruction " 'Mean: [add_engineering_prefix $mean_current]$params(u)' "
     append plot_instruction " at graph 0.7, graph 0.9"
     puts $filepointer $plot_instruction
     set plot_instruction "set label"
-    append plot_instruction " 'Standard deviation: [format "%0.1f" $sigma_current] $params(u)' "
+    append plot_instruction " 'Standard deviation: [add_engineering_prefix $sigma_current]$params(u)' "
     append plot_instruction " at graph 0.7, graph 0.85"
     puts $filepointer $plot_instruction
     puts $filepointer {yaxis_max = GPVAL_Y_MAX}
